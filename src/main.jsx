@@ -215,6 +215,34 @@ function LanguageToggle({ lang, t }) {
   </div>;
 }
 
+function ScrollEffects() {
+  React.useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || !('IntersectionObserver' in window)) return undefined;
+
+    const targets = new Set(document.querySelectorAll('[data-reveal]'));
+    document.querySelectorAll('.demo > section').forEach(section => targets.add(section));
+    if (!targets.size) return undefined;
+
+    document.documentElement.classList.add('motion-ready');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+    targets.forEach(target => observer.observe(target));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove('motion-ready');
+    };
+  }, []);
+
+  return null;
+}
+
 function Mark({ lang }) {
   const role = copy[lang].common.role;
   return <a className="brand" href={localizedHref('/', lang)} aria-label={lang === 'en' ? 'Web developer portfolio — home' : 'Portfólio de desenvolvedor web — início'}>
@@ -262,29 +290,31 @@ function Preview({ p, lang }) {
 function Home({ lang, t }) {
   const c = t.home;
   return <div className="home">
+    <ScrollEffects />
     <a className="skip-link" href="#conteudo">{lang === 'en' ? 'Skip to content' : 'Pular para o conteúdo'}</a>
     <Header lang={lang} t={t} />
     <main id="conteudo">
       <section className="hero">
-        <div className="hero-kicker"><span className="dot" /> {c.heroKicker} <span>{c.region}</span></div>
-        <h1>{c.title}</h1>
-        <div className="hero-foot"><p>{c.description}</p><div className="hero-actions">
+        <div className="hero-art" aria-hidden="true"><i /><i /><i /><span>WEB<br />/ DIGITAL</span></div>
+        <div className="hero-kicker" data-reveal><span className="dot" /> {c.heroKicker} <span>{c.region}</span></div>
+        <h1 data-reveal style={{ '--reveal-delay': '90ms' }}>{c.title}</h1>
+        <div className="hero-foot" data-reveal style={{ '--reveal-delay': '170ms' }}><p>{c.description}</p><div className="hero-actions">
           <a className="hero-primary" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{c.quote} <span>↗</span></a>
           <a className="hero-secondary" href={localizedHref('#projetos', lang)}>{c.explore} <span>↓</span></a>
         </div></div>
         <div className="hero-index">{lang === 'en' ? 'PERSONAL PORTFOLIO / 001' : 'PORTFÓLIO PESSOAL / 001'}</div>
       </section>
       <section className="intro section" id="estudio">
-        <div className="eyebrow">{c.introLabel}</div><div><h2>{c.introTitle}</h2><div className="intro-copy">{c.introCopy.map(x => <p key={x}>{x}</p>)}</div></div>
+        <div className="eyebrow" data-reveal>{c.introLabel}</div><div><h2 data-reveal>{c.introTitle}</h2><div className="intro-copy" data-reveal>{c.introCopy.map(x => <p key={x}>{x}</p>)}</div></div>
       </section>
       <section className="services section" id="servicos">
-        <div className="eyebrow">{c.servicesLabel}</div><div className="services-list"><h2>{c.servicesTitle}</h2>
-          {c.services.map((x, i) => <div className="service" key={x}><span>0{i + 1}</span><b>{x}</b><span>↗</span></div>)}
+        <div className="eyebrow" data-reveal>{c.servicesLabel}</div><div className="services-list"><h2 data-reveal>{c.servicesTitle}</h2>
+          {c.services.map((x, i) => <div className="service" data-reveal style={{ '--reveal-delay': `${i * 65}ms` }} key={x}><span>0{i + 1}</span><b>{x}</b><span>↗</span></div>)}
         </div>
       </section>
       <section className="work section" id="projetos">
-        <div className="eyebrow">{c.workLabel}</div><div className="work-head"><h2>{c.workTitle}</h2><p>{c.workDesc}</p></div>
-        <div className="project-grid">{t.projects.map(p => <article className="project" key={p.n}>
+        <div className="eyebrow" data-reveal>{c.workLabel}</div><div className="work-head" data-reveal><h2>{c.workTitle}</h2><p>{c.workDesc}</p></div>
+        <div className="project-grid">{t.projects.map((p, i) => <article className="project" data-reveal style={{ '--reveal-delay': `${i * 120}ms` }} key={p.n}>
           <a href={localizedHref(p.url, lang)} aria-label={c.exploreProject + ': ' + p.title}><Preview p={p} lang={lang} /></a>
           <div className="project-info"><div><span>{p.kind} · {c.fictional}</span><h3>{p.title}</h3><p>{p.desc}</p><div className="project-tech"><span>{c.technologies}</span>{p.technologies.map(technology => <b key={technology}>{technology}</b>)}</div></div>
             <a className="text-link" href={localizedHref(p.url, lang)}>{c.exploreProject} <b>↗</b></a>
@@ -292,16 +322,16 @@ function Home({ lang, t }) {
         </article>)}</div>
       </section>
       <section className="process section">
-        <div className="eyebrow">{c.processLabel}</div><div><h2>{c.processTitle}</h2>
-          <div className="steps">{c.steps.map((s, i) => <div className="step" key={s[0]}><span>0{i + 1}</span><b>{s[0]}</b><p>{s[1]}</p></div>)}</div>
+        <div className="eyebrow" data-reveal>{c.processLabel}</div><div><h2 data-reveal>{c.processTitle}</h2>
+          <div className="steps">{c.steps.map((s, i) => <div className="step" data-reveal style={{ '--reveal-delay': `${i * 80}ms` }} key={s[0]}><span>0{i + 1}</span><b>{s[0]}</b><p>{s[1]}</p></div>)}</div>
         </div>
       </section>
       <section className="faq section">
-        <div className="eyebrow">{c.faqLabel}</div><div><h2>{c.faqTitle}</h2>
-          {c.faqs.map(a => <details key={a[0]}><summary>{a[0]}<span>+</span></summary><p>{a[1]}</p></details>)}
+        <div className="eyebrow" data-reveal>{c.faqLabel}</div><div><h2 data-reveal>{c.faqTitle}</h2>
+          {c.faqs.map((a, i) => <details data-reveal style={{ '--reveal-delay': `${i * 70}ms` }} key={a[0]}><summary>{a[0]}<span>+</span></summary><p>{a[1]}</p></details>)}
         </div>
       </section>
-      <section className="contact" id="contato">
+      <section className="contact" id="contato" data-reveal>
         <span className="eyebrow">{c.contactLabel}</span><h2>{c.contactTitle}</h2><p>{c.contactDesc}</p>
         <a className="contact-btn" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{c.contactButton} <span>↗</span></a><small>{siteConfig.whatsappDisplay}</small>
         <div className="contact-socials">{siteConfig.socialLinks.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div>
@@ -337,6 +367,7 @@ function DemoNote({ theme, title, text, lang, t }) {
 function Education({ lang, t }) {
   const c = t.edu;
   return <div className="education demo">
+    <ScrollEffects />
     <DemoNav name={c.nav} lang={lang} t={t} />
     <section className="edu-hero">
       <div className="edu-brand">co<span>.</span>lab <small>{c.brand}</small></div>
@@ -359,6 +390,7 @@ function Education({ lang, t }) {
 function Business({ lang, t }) {
   const c = t.biz;
   return <div className="business demo">
+    <ScrollEffects />
     <DemoNav name={c.nav} lang={lang} t={t} />
     <section className="biz-hero"><div className="biz-eyebrow">{c.eyebrow}</div>
       <div className="orbit-art"><div className="orbit o1" /><div className="orbit o2" /><div className="orbit-core">O</div><span>{lang === 'en' ? 'IDEA' : 'IDEIA'}</span><span>{lang === 'en' ? 'DIRECTION' : 'DIREÇÃO'}</span></div>
@@ -377,6 +409,7 @@ function Business({ lang, t }) {
 function Personal({ lang, t }) {
   const c = t.life;
   return <div className={'personal demo ' + (lang === 'en' ? 'english' : '')}>
+    <ScrollEffects />
     <DemoNav name={c.nav} lang={lang} t={t} />
     <section className="life-hero"><div className="life-label">{c.label}</div>
       <div className="life-image"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=72" srcSet="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=560&q=68 560w, https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=70 900w, https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=72 1200w" sizes="(max-width: 760px) 86vw, 48vw" alt={c.imageAlt} width="1200" height="800" fetchPriority="high" decoding="async" /><span>{c.imageCaption}</span></div>
@@ -464,3 +497,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />);
+
