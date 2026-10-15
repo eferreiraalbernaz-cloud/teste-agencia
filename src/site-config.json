@@ -1,0 +1,54 @@
+{
+  "siteUrl": "https://albr-agency.pages.dev",
+  "plannedSiteUrl": "https://albernaz.pages.dev",
+  "displayName": "Enzo Albernaz",
+  "role": {
+    "pt": "Desenvolvedor Web",
+    "en": "Web Developer"
+  },
+  "whatsappNumber": "5575999280550",
+  "whatsappDisplay": "+55 75 99928-0550",
+  "socialLinks": [],
+  "pages": {
+    "/": {
+      "pt": {
+        "title": "Enzo Albernaz | Desenvolvedor Web · Sites para negócios",
+        "description": "Desenvolvimento de landing pages e sites responsivos para empresas, profissionais autônomos e pequenos negócios. Solicite um orçamento pelo WhatsApp."
+      },
+      "en": {
+        "title": "Enzo Albernaz | Web Developer · Websites for small businesses",
+        "description": "Responsive websites and landing pages for businesses and independent professionals. Request a website quote on WhatsApp."
+      }
+    },
+    "/educacao/": {
+      "pt": {
+        "title": "Código de Origem | Demonstração de landing page educacional",
+        "description": "Conceito fictício de uma landing page para formação profissional em desenvolvimento web."
+      },
+      "en": {
+        "title": "Code of Origin | Educational landing page concept",
+        "description": "A fictional landing page concept for professional web development training."
+      }
+    },
+    "/empreendedorismo/": {
+      "pt": {
+        "title": "Órbita | Demonstração de landing page de negócios",
+        "description": "Conceito fictício de uma landing page para uma mentoria de negócios digitais."
+      },
+      "en": {
+        "title": "Orbit | Digital business landing page concept",
+        "description": "A fictional landing page concept for digital business mentorship."
+      }
+    },
+    "/desenvolvimento-pessoal/": {
+      "pt": {
+        "title": "Entretempo | Demonstração de landing page de produtividade",
+        "description": "Conceito fictício de uma landing page para um programa de produtividade e desenvolvimento pessoal."
+      },
+      "en": {
+        "title": "In Between | Productivity landing page concept",
+        "description": "A fictional landing page concept for a productivity and personal development program."
+      }
+    }
+  }
+}

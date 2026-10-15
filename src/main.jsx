@@ -1,40 +1,41 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import siteConfig from './site-config.json';
 import './styles.css';
 
 const copy = {
   pt: {
     common: {
-      navigation: 'Navegação principal', studio: 'Estúdio', services: 'Serviços', projects: 'Projetos',
+      navigation: 'Navegação principal', studio: 'Sobre mim', services: 'Serviços', projects: 'Projetos',
       talk: 'Vamos conversar', openMenu: 'Abrir navegação', closeMenu: 'Fechar navegação',
-      language: 'Idioma', footer: 'Estúdio digital independente · Brasil', whatsapp: 'WhatsApp',
-      portfolio: 'Portfólio', back: '← Portfólio ALBR.', fictional: 'PROJETO CONCEITUAL FICTÍCIO',
-      contact: 'Falar com a ALBR. ↗', demoDefault: 'Quero conhecer o programa',
+      language: 'Idioma', footer: 'Portfólio de desenvolvimento web', whatsapp: 'WhatsApp',
+      role: 'Desenvolvedor Web', portfolio: 'Portfólio', back: '← Voltar ao portfólio', fictional: 'PROJETO CONCEITUAL FICTÍCIO',
+      contact: 'Fale comigo ↗', demoDefault: 'Conheça o conceito',
       demoLabel: 'CONCEITO DEMONSTRATIVO FICTÍCIO', otherProjects: '← Conhecer outros projetos',
     },
     projects: [
-      { n: '01', title: 'Código de Origem', kind: 'Educação profissional', desc: 'Uma experiência de aprendizagem para quem quer construir uma carreira em tecnologia.', url: '/educacao/', theme: 'edu', label: 'FORMAÇÃO EM TECNOLOGIA', tagline: 'Aprenda a construir.' },
-      { n: '02', title: 'Órbita', kind: 'Empreendedorismo', desc: 'Estratégia e direção para negócios digitais em movimento.', url: '/empreendedorismo/', theme: 'biz', label: 'MENTORIA DE NEGÓCIOS', tagline: 'Negócios em movimento.' },
-      { n: '03', title: 'Entretempo', kind: 'Desenvolvimento pessoal', desc: 'Um convite a trabalhar com mais intenção e menos ruído.', url: '/desenvolvimento-pessoal/', theme: 'life', label: 'PROGRAMA DE PRODUTIVIDADE', tagline: 'Faça espaço para o que importa.' },
+      { n: '01', title: 'Código de Origem', kind: 'Educação profissional', desc: 'Conceito fictício de uma página de formação profissional em tecnologia.', technologies: ['React', 'Vite', 'CSS'], url: '/educacao/', theme: 'edu', label: 'FORMAÇÃO EM TECNOLOGIA', tagline: 'Aprenda a construir.' },
+      { n: '02', title: 'Órbita', kind: 'Empreendedorismo', desc: 'Conceito fictício de uma página para uma mentoria de negócios digitais.', technologies: ['React', 'Vite', 'CSS'], url: '/empreendedorismo/', theme: 'biz', label: 'MENTORIA DE NEGÓCIOS', tagline: 'Negócios em movimento.' },
+      { n: '03', title: 'Entretempo', kind: 'Desenvolvimento pessoal', desc: 'Conceito fictício de uma página para um programa de produtividade.', technologies: ['React', 'Vite', 'CSS'], url: '/desenvolvimento-pessoal/', theme: 'life', label: 'PROGRAMA DE PRODUTIVIDADE', tagline: 'Faça espaço para o que importa.' },
     ],
     home: {
-      heroKicker: 'ESTÚDIO DIGITAL INDEPENDENTE', region: 'BRASIL · 2026',
-      title: <>Ideias que<br />ganham <i>presença.</i></>,
-      description: <>Experiências digitais construídas para se destacar.<br />Estratégia, design e desenvolvimento em uma só direção.</>,
-      explore: 'Explore o trabalho',
-      introLabel: '01 / O ESTÚDIO', introTitle: <>Pequeno por escolha.<br /><span>Grande na intenção.</span></>,
-      introCopy: ['A ALBR. é um estúdio digital independente que transforma boas ideias em experiências online claras, envolventes e feitas para durar.', 'Trabalhamos especialmente com criadores de cursos, mentores e empreendedores que querem apresentar seu trabalho com mais força.'],
-      servicesLabel: '02 / O QUE FAZEMOS', servicesTitle: <>Estratégia, forma<br />e função.</>,
-      services: ['Landing pages de alta clareza', 'Direção de arte e identidade digital', 'Design responsivo e desenvolvimento', 'Estrutura de conteúdo e conversão'],
-      workLabel: '03 / PROJETOS CONCEITUAIS', workTitle: <>Três ideias.<br /><i>Três mundos.</i></>,
-      workDesc: 'Estudos demonstrativos fictícios para mostrar como uma boa experiência pode ganhar formas diferentes.',
-      fictional: 'CONCEITO FICTÍCIO', exploreProject: 'Explorar projeto',
-      processLabel: '04 / COMO ACONTECE', processTitle: <>Do primeiro papo<br />à tela no ar.</>,
-      steps: [['Conversa', 'Entendemos seu momento, seu público e o que precisa acontecer.'], ['Direção', 'Definimos mensagem, estrutura e linguagem visual antes de desenhar.'], ['Construção', 'Desenhamos e desenvolvemos uma experiência responsiva e acessível.'], ['Entrega', 'Publicamos o projeto e deixamos tudo organizado para evoluir.']],
+      heroKicker: 'DESENVOLVEDOR WEB INDEPENDENTE', region: 'PORTFÓLIO · 2026',
+      title: <>Seu trabalho merece<br />um site à <i>altura.</i></>,
+      description: <>Desenvolvo sites claros e responsivos para empresas,<br />profissionais autônomos e pequenos negócios.</>,
+      quote: 'Solicitar orçamento', explore: 'Ver projetos',
+      introLabel: '01 / SOBRE MIM', introTitle: <>Desenvolvimento direto.<br /><span>Feito para o seu negócio.</span></>,
+      introCopy: ['Sou desenvolvedor web independente e trabalho diretamente com você para transformar as necessidades do negócio em uma presença online clara e bem estruturada.', 'Do planejamento da página à publicação, cada projeto é pensado para funcionar bem em diferentes telas e facilitar o contato com seus clientes.'],
+      servicesLabel: '02 / SERVIÇOS', servicesTitle: <>Seu próximo site,<br />bem resolvido.</>,
+      services: ['Criação de landing pages', 'Desenvolvimento de sites institucionais', 'Design e desenvolvimento responsivo', 'Reformulação de sites existentes', 'Integração com WhatsApp e redes sociais'],
+      workLabel: '03 / PROJETOS DEMONSTRATIVOS', workTitle: <>Três conceitos.<br /><i>Três direções.</i></>,
+      workDesc: 'Estudos fictícios criados para mostrar diferentes possibilidades de conteúdo, identidade visual e desenvolvimento. Não representam clientes reais.',
+      fictional: 'CONCEITO FICTÍCIO', technologies: 'TECNOLOGIAS', exploreProject: 'Ver demonstração',
+      processLabel: '04 / COMO TRABALHO', processTitle: <>Da ideia inicial<br />à publicação.</>,
+      steps: [['Conversa', 'Entendo seu momento, seu público e o que precisa acontecer.'], ['Direção', 'Defino mensagem, estrutura e linguagem visual antes de desenhar.'], ['Construção', 'Desenvolvo uma experiência responsiva e acessível, com atenção a cada detalhe.'], ['Entrega', 'Coloco o projeto no ar e deixo tudo organizado para evoluir.']],
       faqLabel: '05 / PERGUNTAS', faqTitle: 'Sem mistério.',
-      faqs: [['Para quem é a ALBR.?', 'Para criadores de cursos, mentores e empreendedores digitais que precisam apresentar uma oferta com clareza.'], ['O que está incluído?', 'O escopo varia por projeto e pode incluir estratégia de conteúdo, direção de arte, design e desenvolvimento da landing page.'], ['Quanto tempo leva?', 'Prazo e etapas são definidos depois de entendermos o escopo e os materiais disponíveis.'], ['Como começo?', 'Envie uma mensagem contando um pouco sobre o projeto. Retornamos para entender se faz sentido trabalharmos juntos.']],
-      contactLabel: '06 / PRÓXIMO PASSO', contactTitle: <>Tem uma ideia<br />para colocar <i>no mundo?</i></>,
-      contactDesc: 'Conte um pouco sobre o que você está construindo.', contactButton: 'Conversar pelo WhatsApp',
+      faqs: [['Que tipo de site você desenvolve?', 'Landing pages, sites institucionais e reformulações para empresas, profissionais autônomos e pequenos negócios.'], ['O site funciona em celulares?', 'Sim. Os projetos são planejados para se adaptar a celulares, tablets e computadores.'], ['Quanto tempo leva e quanto custa?', 'Prazo e orçamento dependem do escopo, dos conteúdos disponíveis e das integrações necessárias. Envie uma mensagem para conversar sobre o seu projeto.'], ['Como começo?', 'Clique em solicitar orçamento e conte, pelo WhatsApp, o que você precisa para o seu site.']],
+      contactLabel: '06 / FALE COMIGO', contactTitle: <>Vamos criar um site<br />para o seu <i>próximo passo?</i></>,
+      contactDesc: 'Conte um pouco sobre o seu negócio e o que você gostaria de construir.', contactButton: 'Solicitar orçamento pelo WhatsApp',
     },
     edu: {
       nav: 'CÓDIGO DE ORIGEM', brand: 'FORMAÇÃO PROFISSIONAL', heroPill: 'TECNOLOGIA PARA NOVOS COMEÇOS',
@@ -96,36 +97,36 @@ const copy = {
   },
   en: {
     common: {
-      navigation: 'Main navigation', studio: 'Studio', services: 'Services', projects: 'Projects',
+      navigation: 'Main navigation', studio: 'About me', services: 'Services', projects: 'Projects',
       talk: 'Let’s talk', openMenu: 'Open navigation', closeMenu: 'Close navigation',
-      language: 'Language', footer: 'Independent digital studio · Brazil', whatsapp: 'WhatsApp',
-      portfolio: 'Portfolio', back: '← ALBR. portfolio', fictional: 'FICTIONAL CONCEPT PROJECT',
-      contact: 'Contact ALBR. ↗', demoDefault: 'Explore the program',
+      language: 'Language', footer: 'Web development portfolio', whatsapp: 'WhatsApp',
+      role: 'Web Developer', portfolio: 'Portfolio', back: '← Back to portfolio', fictional: 'FICTIONAL CONCEPT PROJECT',
+      contact: 'Get in touch ↗', demoDefault: 'Explore the concept',
       demoLabel: 'FICTIONAL DEMONSTRATION CONCEPT', otherProjects: '← Explore other projects',
     },
     projects: [
-      { n: '01', title: 'Code of Origin', kind: 'Professional education', desc: 'A learning experience for people ready to build a career in technology.', url: '/educacao/', theme: 'edu', label: 'TECHNOLOGY TRAINING', tagline: 'Learn to build.' },
-      { n: '02', title: 'Orbit', kind: 'Entrepreneurship', desc: 'Strategy and direction for digital businesses in motion.', url: '/empreendedorismo/', theme: 'biz', label: 'BUSINESS MENTORSHIP', tagline: 'Business in motion.' },
-      { n: '03', title: 'In Between', kind: 'Personal development', desc: 'An invitation to work with more intention and less noise.', url: '/desenvolvimento-pessoal/', theme: 'life', label: 'PRODUCTIVITY PROGRAM', tagline: 'Make room for what matters.' },
+      { n: '01', title: 'Code of Origin', kind: 'Professional education', desc: 'Fictional concept for a professional technology training page.', technologies: ['React', 'Vite', 'CSS'], url: '/educacao/', theme: 'edu', label: 'TECHNOLOGY TRAINING', tagline: 'Learn to build.' },
+      { n: '02', title: 'Orbit', kind: 'Entrepreneurship', desc: 'Fictional concept for a digital business mentorship page.', technologies: ['React', 'Vite', 'CSS'], url: '/empreendedorismo/', theme: 'biz', label: 'BUSINESS MENTORSHIP', tagline: 'Business in motion.' },
+      { n: '03', title: 'In Between', kind: 'Personal development', desc: 'Fictional concept for a productivity program page.', technologies: ['React', 'Vite', 'CSS'], url: '/desenvolvimento-pessoal/', theme: 'life', label: 'PRODUCTIVITY PROGRAM', tagline: 'Make room for what matters.' },
     ],
     home: {
-      heroKicker: 'INDEPENDENT DIGITAL STUDIO', region: 'BRAZIL · 2026',
-      title: <>Ideas that<br />make a <i>mark.</i></>,
-      description: <>Digital experiences, built to stand out.<br />Strategy, design, and development in one clear direction.</>,
-      explore: 'Explore our work',
-      introLabel: '01 / THE STUDIO', introTitle: <>Small by choice.<br /><span>Big on intention.</span></>,
-      introCopy: ['ALBR. is an independent digital studio turning good ideas into clear, engaging online experiences made to last.', 'We work especially with course creators, mentors, and entrepreneurs who want to present their work with more impact.'],
-      servicesLabel: '02 / WHAT WE DO', servicesTitle: <>Strategy, form<br />and function.</>,
-      services: ['Clear, focused landing pages', 'Art direction and digital identity', 'Responsive design and development', 'Content structure and conversion'],
-      workLabel: '03 / CONCEPT PROJECTS', workTitle: <>Three ideas.<br /><i>Three worlds.</i></>,
-      workDesc: 'Fictional concept projects showing how a thoughtful digital experience can take different forms.',
-      fictional: 'FICTIONAL CONCEPT', exploreProject: 'Explore project',
-      processLabel: '04 / HOW IT WORKS', processTitle: <>From our first conversation<br />to launch.</>,
-      steps: [['Conversation', 'We learn about your goals, audience, and what the project needs to do.'], ['Direction', 'We define the message, structure, and visual language before design begins.'], ['Build', 'We design and develop a responsive, accessible experience.'], ['Delivery', 'We launch the project and leave everything organized for future updates.']],
+      heroKicker: 'INDEPENDENT WEB DEVELOPER', region: 'PORTFOLIO · 2026',
+      title: <>Your work deserves<br />a website that <i>fits.</i></>,
+      description: <>I build clear, responsive websites for businesses,<br />independent professionals, and small teams.</>,
+      quote: 'Request a quote', explore: 'View projects',
+      introLabel: '01 / ABOUT ME', introTitle: <>Direct collaboration.<br /><span>Built around your business.</span></>,
+      introCopy: ['I’m an independent web developer. I work directly with you to turn your business needs into a clear, well-structured online presence.', 'From page planning to launch, each project is designed to work across screen sizes and make it easier for customers to get in touch.'],
+      servicesLabel: '02 / SERVICES', servicesTitle: <>Your next website,<br />thoughtfully built.</>,
+      services: ['Landing page development', 'Business website development', 'Responsive design and development', 'Website redesigns', 'WhatsApp and social media integration'],
+      workLabel: '03 / DEMONSTRATION PROJECTS', workTitle: <>Three concepts.<br /><i>Three directions.</i></>,
+      workDesc: 'Fictional studies created to show different approaches to content, visual identity, and development. They do not represent real clients.',
+      fictional: 'FICTIONAL CONCEPT', technologies: 'TECHNOLOGIES', exploreProject: 'View demo',
+      processLabel: '04 / HOW I WORK', processTitle: <>From the first idea<br />to launch.</>,
+      steps: [['Conversation', 'I learn about your goals, audience, and what the project needs to do.'], ['Direction', 'I define the message, structure, and visual language before design begins.'], ['Build', 'I develop a responsive, accessible experience with care for every detail.'], ['Delivery', 'I launch the project and leave everything organized for future updates.']],
       faqLabel: '05 / QUESTIONS', faqTitle: 'Good to know.',
-      faqs: [['Who is ALBR. for?', 'Course creators, mentors, and digital entrepreneurs who need to present an offer clearly.'], ['What is included?', 'The scope varies by project and may include content strategy, art direction, design, and landing page development.'], ['How long does it take?', 'We set the timeline and milestones after reviewing the scope and available materials.'], ['How do I get started?', 'Send a message with a little about your project. We’ll follow up to see if it makes sense to work together.']],
-      contactLabel: '06 / NEXT STEP', contactTitle: <>Have an idea<br />you’re ready to <i>put out there?</i></>,
-      contactDesc: 'Tell us a little about what you’re building.', contactButton: 'Start a WhatsApp conversation',
+      faqs: [['What kind of websites do you build?', 'Landing pages, business websites, and redesigns for businesses, independent professionals, and small teams.'], ['Will my website work on phones?', 'Yes. Projects are designed to adapt to phones, tablets, and desktop screens.'], ['How long does it take, and what does it cost?', 'Timeline and quote depend on scope, available content, and the integrations you need. Send a message to discuss your project.'], ['How do I get started?', 'Request a quote and tell me what you need for your website on WhatsApp.']],
+      contactLabel: '06 / GET IN TOUCH', contactTitle: <>Let’s build a website<br />for your <i>next step.</i></>,
+      contactDesc: 'Tell me about your business and what you would like to build.', contactButton: 'Request a quote on WhatsApp',
     },
     edu: {
       nav: 'CODE OF ORIGIN', brand: 'PROFESSIONAL TRAINING', heroPill: 'TECHNOLOGY FOR A FRESH START',
@@ -201,9 +202,9 @@ function localizedHref(href, lang) {
 
 function whatsappUrl(lang) {
   const message = lang === 'en'
-    ? 'Hi! I saw ALBR. Agency’s website and would like to talk about a landing page for my project.'
-    : 'Oi! Vi o site da ALBR. e quero conversar sobre uma landing page para meu projeto.';
-  return 'https://wa.me/5575999280550?text=' + encodeURIComponent(message);
+    ? 'Hi! I’d like to request a quote for a website.'
+    : 'Olá! Gostaria de solicitar um orçamento para um site.';
+  return 'https://wa.me/' + siteConfig.whatsappNumber + '?text=' + encodeURIComponent(message);
 }
 
 function LanguageToggle({ lang, t }) {
@@ -215,9 +216,10 @@ function LanguageToggle({ lang, t }) {
 }
 
 function Mark({ lang }) {
-  return <a className="brand" href={localizedHref('/', lang)} aria-label={lang === 'en' ? 'ALBR. Agency — home' : 'ALBR. Agency — início'}>
-    <img className="mark" src="/albr-logo.png" alt="" />
-    <span className="brand-name">ALBR<span>.</span><small>AGENCY</small></span>
+  const role = copy[lang].common.role;
+  return <a className="brand" href={localizedHref('/', lang)} aria-label={lang === 'en' ? 'Web developer portfolio — home' : 'Portfólio de desenvolvedor web — início'}>
+    <img className="mark" src="/albr-logo.png" alt="" width="300" height="300" />
+    <span className="brand-name">{siteConfig.displayName}<small>{role}</small></span>
   </a>;
 }
 
@@ -243,8 +245,9 @@ function Footer({ lang, t }) {
     <Mark lang={lang} />
     <span>{t.common.footer}</span>
     <a href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{t.common.whatsapp} ↗</a>
+    {siteConfig.socialLinks.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}
     <a href={localizedHref('/#projetos', lang)}>{t.common.portfolio} ↑</a>
-    <small>© {new Date().getFullYear()} ALBR. Agency</small>
+    <small>© {new Date().getFullYear()} · {t.common.role}</small>
   </footer>;
 }
 
@@ -259,13 +262,17 @@ function Preview({ p, lang }) {
 function Home({ lang, t }) {
   const c = t.home;
   return <div className="home">
+    <a className="skip-link" href="#conteudo">{lang === 'en' ? 'Skip to content' : 'Pular para o conteúdo'}</a>
     <Header lang={lang} t={t} />
-    <main>
+    <main id="conteudo">
       <section className="hero">
         <div className="hero-kicker"><span className="dot" /> {c.heroKicker} <span>{c.region}</span></div>
         <h1>{c.title}</h1>
-        <div className="hero-foot"><p>{c.description}</p><a className="circle-link" href={localizedHref('#projetos', lang)}>↓<span>{c.explore}</span></a></div>
-        <div className="hero-index">ALBR. — DIGITAL EXPERIENCES / 001</div>
+        <div className="hero-foot"><p>{c.description}</p><div className="hero-actions">
+          <a className="hero-primary" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{c.quote} <span>↗</span></a>
+          <a className="hero-secondary" href={localizedHref('#projetos', lang)}>{c.explore} <span>↓</span></a>
+        </div></div>
+        <div className="hero-index">{lang === 'en' ? 'PERSONAL PORTFOLIO / 001' : 'PORTFÓLIO PESSOAL / 001'}</div>
       </section>
       <section className="intro section" id="estudio">
         <div className="eyebrow">{c.introLabel}</div><div><h2>{c.introTitle}</h2><div className="intro-copy">{c.introCopy.map(x => <p key={x}>{x}</p>)}</div></div>
@@ -279,7 +286,7 @@ function Home({ lang, t }) {
         <div className="eyebrow">{c.workLabel}</div><div className="work-head"><h2>{c.workTitle}</h2><p>{c.workDesc}</p></div>
         <div className="project-grid">{t.projects.map(p => <article className="project" key={p.n}>
           <a href={localizedHref(p.url, lang)} aria-label={c.exploreProject + ': ' + p.title}><Preview p={p} lang={lang} /></a>
-          <div className="project-info"><div><span>{p.kind} · {c.fictional}</span><h3>{p.title}</h3><p>{p.desc}</p></div>
+          <div className="project-info"><div><span>{p.kind} · {c.fictional}</span><h3>{p.title}</h3><p>{p.desc}</p><div className="project-tech"><span>{c.technologies}</span>{p.technologies.map(technology => <b key={technology}>{technology}</b>)}</div></div>
             <a className="text-link" href={localizedHref(p.url, lang)}>{c.exploreProject} <b>↗</b></a>
           </div>
         </article>)}</div>
@@ -296,7 +303,8 @@ function Home({ lang, t }) {
       </section>
       <section className="contact" id="contato">
         <span className="eyebrow">{c.contactLabel}</span><h2>{c.contactTitle}</h2><p>{c.contactDesc}</p>
-        <a className="contact-btn" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{c.contactButton} <span>↗</span></a><small>+55 75 99928-0550</small>
+        <a className="contact-btn" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{c.contactButton} <span>↗</span></a><small>{siteConfig.whatsappDisplay}</small>
+        <div className="contact-socials">{siteConfig.socialLinks.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div>
       </section>
     </main>
     <Footer lang={lang} t={t} />
@@ -308,11 +316,11 @@ function FAQ({ items }) {
 }
 
 function DemoNav({ name, lang, t }) {
-  return <div className="demo-nav">
+  return <nav className="demo-nav" aria-label={lang === 'en' ? 'Project navigation' : 'Navegação do projeto'}>
     <a href={localizedHref('/#projetos', lang)}>{t.common.back}</a><span>{t.common.fictional}</span>
     <a className="demo-contact" href={whatsappUrl(lang)} target="_blank" rel="noreferrer">{t.common.contact}</a>
     <b>{name}</b><LanguageToggle lang={lang} t={t} />
-  </div>;
+  </nav>;
 }
 
 function DemoCTA({ children, lang, t }) {
@@ -371,7 +379,7 @@ function Personal({ lang, t }) {
   return <div className={'personal demo ' + (lang === 'en' ? 'english' : '')}>
     <DemoNav name={c.nav} lang={lang} t={t} />
     <section className="life-hero"><div className="life-label">{c.label}</div>
-      <div className="life-image"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=80" alt={c.imageAlt} /><span>{c.imageCaption}</span></div>
+      <div className="life-image"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=72" srcSet="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=560&q=68 560w, https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=70 900w, https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=72 1200w" sizes="(max-width: 760px) 86vw, 48vw" alt={c.imageAlt} width="1200" height="800" fetchPriority="high" decoding="async" /><span>{c.imageCaption}</span></div>
       <div className="life-title"><span>{lang === 'en' ? '01 — IN BETWEEN' : '01 — ENTRETEMPO'}</span><h1>{c.title}</h1><p>{c.heroText}</p><DemoCTA lang={lang} t={t}>{c.cta}</DemoCTA></div>
       <span className="life-credit">{c.credit}</span>
     </section>
@@ -384,28 +392,74 @@ function Personal({ lang, t }) {
   </div>;
 }
 
+const canonicalBase = (import.meta.env.VITE_SITE_URL || siteConfig.siteUrl).replace(/\/+$/, '');
+
+function setMeta(attribute, key, value) {
+  let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.append(element);
+  }
+  element.setAttribute('content', value);
+}
+
+function updatePageMetadata(path, lang) {
+  const canonicalPath = path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`;
+  const page = siteConfig.pages[canonicalPath] || siteConfig.pages['/'];
+  const title = page[lang].title;
+  const description = page[lang].description;
+  const canonicalUrl = `${canonicalBase}${canonicalPath}`;
+  const imageUrl = `${canonicalBase}/albr-logo.png`;
+  document.title = title;
+  document.documentElement.lang = lang === 'en' ? 'en-US' : 'pt-BR';
+  setMeta('name', 'description', description);
+  setMeta('property', 'og:type', 'website');
+  setMeta('property', 'og:locale', lang === 'en' ? 'en_US' : 'pt_BR');
+  setMeta('property', 'og:title', title);
+  setMeta('property', 'og:description', description);
+  setMeta('property', 'og:url', canonicalUrl);
+  setMeta('property', 'og:image', imageUrl);
+  setMeta('property', 'og:image:alt', lang === 'en' ? 'The personal web developer portfolio mark' : 'Símbolo do portfólio pessoal de desenvolvimento web');
+  setMeta('name', 'twitter:card', 'summary');
+  setMeta('name', 'twitter:title', title);
+  setMeta('name', 'twitter:description', description);
+  setMeta('name', 'twitter:image', imageUrl);
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.append(canonical);
+  }
+  canonical.href = canonicalUrl;
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': canonicalPath === '/' ? 'WebSite' : 'WebPage',
+    name: canonicalPath === '/' ? `${siteConfig.displayName} | ${siteConfig.role[lang]}` : title,
+    url: canonicalUrl,
+    description,
+    inLanguage: lang === 'en' ? 'en-US' : 'pt-BR',
+  };
+  let schema = document.getElementById('site-schema');
+  if (!schema) {
+    schema = document.createElement('script');
+    schema.id = 'site-schema';
+    schema.type = 'application/ld+json';
+    document.head.append(schema);
+  }
+  schema.textContent = JSON.stringify(structuredData);
+}
+
 function App() {
   const lang = getLocale();
   const t = copy[lang];
-  const path = window.location.pathname.replace(/\/+$/, '') || '/';
-  const metadata = lang === 'en' ? {
-    '/': ['ALBR. Agency — Independent digital studio', 'ALBR. is an independent digital studio creating thoughtful landing pages for course creators, mentors, and digital entrepreneurs.'],
-    '/educacao': ['Code of Origin — Professional training | ALBR.', 'Fictional concept for a professional web development training landing page.'],
-    '/empreendedorismo': ['Orbit — Digital business mentorship | ALBR.', 'Fictional concept for a digital business strategy mentorship landing page.'],
-    '/desenvolvimento-pessoal': ['In Between — Mindful productivity | ALBR.', 'Fictional concept for a personal development and productivity program landing page.'],
-  } : {
-    '/': ['ALBR. — Estúdio digital independente', 'ALBR. — Estúdio digital independente. Experiências digitais construídas para se destacar.'],
-    '/educacao': ['Código de Origem — Formação em tecnologia | ALBR.', 'Conceito demonstrativo fictício de uma formação profissional em desenvolvimento web.'],
-    '/empreendedorismo': ['Órbita — Mentoria de negócios digitais | ALBR.', 'Conceito demonstrativo fictício de uma mentoria em estratégia para negócios digitais.'],
-    '/desenvolvimento-pessoal': ['Entretempo — Produtividade consciente | ALBR.', 'Conceito demonstrativo fictício de um programa de produtividade e desenvolvimento pessoal.'],
-  };
-  const [title, description] = metadata[path] || metadata['/'];
-  document.title = title;
-  document.documentElement.lang = lang === 'en' ? 'en-US' : 'pt-BR';
-  document.querySelector('meta[name="description"]')?.setAttribute('content', description);
-  if (path === '/educacao') return <Education lang={lang} t={t} />;
-  if (path === '/empreendedorismo') return <Business lang={lang} t={t} />;
-  if (path === '/desenvolvimento-pessoal') return <Personal lang={lang} t={t} />;
+  const path = window.location.pathname === '/' ? '/' : `${window.location.pathname.replace(/\/+$/, '')}/`;
+  updatePageMetadata(path, lang);
+  if (path === '/educacao/') return <Education lang={lang} t={t} />;
+  if (path === '/empreendedorismo/') return <Business lang={lang} t={t} />;
+  if (path === '/desenvolvimento-pessoal/') return <Personal lang={lang} t={t} />;
   return <Home lang={lang} t={t} />;
 }
 
